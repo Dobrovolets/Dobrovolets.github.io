@@ -1,16 +1,9 @@
 $("#btn").click(function() {
-    let timeout = 5000;
-    $("#code").val(generateCode())
-    $("#alert").text('You have ' + timeout / 1000 + ' seconds to copy it!')
+    $("#code").val(generateCode($("#number").val()))
     $("#alert").parent().removeClass('d-none')
-    setTimeout(function () {
-        $("#code").val('Generate a code')
-        $("#alert").parent().addClass('d-none')
-    }, timeout)
 })
 
-function generateCode() {
-    let length = 64;
+function generateCode(length) {
     let result           = '';
     let characters       = 'ABCDEF0123456789';
     let charactersLength = characters.length;
